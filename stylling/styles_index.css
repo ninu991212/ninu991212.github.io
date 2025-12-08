@@ -87,7 +87,7 @@ nav a:hover {
   margin-top: 25px;
   opacity: 0;
   animation: showMenu 1s forwards;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 @keyframes showMenu {
@@ -126,6 +126,7 @@ footer {
   width: 100%;
   font-size: 14px;
 }
+
 
 
 
