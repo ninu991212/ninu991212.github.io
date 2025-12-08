@@ -1,0 +1,218 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+p,
+.titulo1 {
+  display: flex;
+  font-size: 18.72px;
+  font-weight: 600;
+}
+
+header {
+  background: #e60000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+nav {
+  background: #000; /* Black background */
+  padding: 18px 0;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(44, 44, 44, 0.08);
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  background: #181818; /* Smooth dark button */
+  border-radius: 24px;
+  margin: 0 14px;
+  padding: 10px 28px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(44, 44, 44, 0.13);
+  border: 1px solid #222;
+  transition: background 0.22s cubic-bezier(0.4, 0, 0.2, 1), color 0.18s,
+    transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s;
+}
+
+nav a:hover,
+nav a:focus {
+  background: linear-gradient(90deg, #e60000 0%, #ff4d4d 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(230, 0, 0, 0.13);
+  text-decoration: none;
+  outline: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+  width: 100%;
+  height: 150px;
+  resize: vertical;
+  overflow: auto;
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  min-height: 130px;
+  margin-bottom: 15px;
+  background: #fafafa;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.box:focus {
+  border-color: #e60000;
+}
+
+.placeholder:empty:before {
+  content: attr(data-placeholder);
+  color: #aaa;
+}
+
+.IDs {
+  display: flex;
+
+  margin: 0 0 2px 0;
+  font-size: 18.72px;
+  color: #222;
+  font-weight: 600;
+}
+
+.motivos-all {
+  display: flex;
+  gap: 10px;
+}
+
+.status-choices,
+.motive-choices {
+  width: 200px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(20, 20, 20, 0.03);
+}
+
+.status-choices label,
+.motive-choices label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+  font-size: 14px;
+}
+
+.status-choices select,
+.motive-choices select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: linear-gradient(180deg, #fff, #fafafa);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  appearance: none;
+}
+
+/* Improved button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.12s ease;
+  box-shadow: 0 6px 16px rgba(32, 33, 36, 0.06);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:focus {
+  outline: 3px solid rgba(100, 150, 250, 0.18);
+  outline-offset: 2px;
+}
+.btn-main {
+  background: linear-gradient(180deg, #e60000 0%, #c80000 100%);
+  color: #fff;
+}
+.btn-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(57, 144, 62, 0.18);
+}
+.btn-clear {
+  background: linear-gradient(180deg, #bdbdbd 0%, #999 100%);
+  color: #fff;
+}
+.btn-clear:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(224, 75, 75, 0.18);
+}
+.btn-copy {
+  background: linear-gradient(180deg, #5aa0ff 0%, #3b8ae6 100%);
+  color: #fff;
+}
+.btn-copy:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(59, 138, 230, 0.18);
+}
+.btn + .btn {
+  margin-left: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #e60000;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Responsive fallback for the inline flex layout in the HTML */
+@media (max-width: 760px) {
+  .container > div[style*="display: flex"] .status-choices,
+  .motive-choices {
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 0;
+    width: 80%;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+}

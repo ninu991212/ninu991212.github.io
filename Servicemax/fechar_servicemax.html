@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fechar Service Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylling/styles_fechar_servicemax.css" />
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>Fechar Service Orders</header>
+
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="extrair_wo.html">Extrair WO</a>
+      <a href="extrair_wl.html">Extrair WL</a>
+      <a href="fechar_servicemax.html">Fechar Service Orders</a>
+    </nav>
+
+    <div class="container">
+      <h2>Formatar Service Orders</h2>
+      <p>Cole aqui os IDs:</p>  
+      <div class="IDs">
+        <div class="motivos-all">
+
+          <div class="status-choices">
+            <label for="orderStatus">Status do Pedido</label>
+            <select id="orderStatus">
+              <option value="Closed">Closed</option>
+              <option value="Canceled">Canceled</option>
+              <option value="Pending Customer">Pending Customer</option>
+            </select>
+          </div>
+
+          <div class="motive-choices">
+            <label for="closingMotive">Motivo de Fecho</label>
+            <select id="closingMotive">
+              <option value="Administrative failure">
+                Administrative failure
+              </option>
+              <option value="Validated">Validated</option>
+              <option value="Swap Withdrawal">Swap Withdrawal</option>
+              <option value="">Vazio</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      
+      <div
+        id="entrada"
+        class="box placeholder"
+        contenteditable="true"
+        data-placeholder="Colar o texto"
+      ></div>
+
+      <button class="btn btn-main" onclick="processar()">Processar</button>
+      <button
+        class="btn btn-clear"
+        onclick="document.getElementById('entrada').innerText=''"
+      >
+        Limpar
+      </button>
+      
+      <div>
+      <p class="format-p">Saída formatada:</p>
+      </div>
+
+      <div id="saida" class="box"></div>
+
+      <button class="btn btn-copy" onclick="copiar()">Copiar</button>
+      <button
+        class="btn btn-clear"
+        onclick="document.getElementById('saida').innerText=''"
+      >
+        Limpar
+      </button>
+    </div>
+    <footer>Developed by Nuno Cunha</footer>
+    <script src="java_scripts/jvs_fechar_servicemax.js"></script>
+  </body>
+</html>
