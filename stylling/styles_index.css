@@ -68,7 +68,7 @@ nav a:hover {
 }
 
 .fade-text.delay {
-  animation-delay: 1.5s;
+  animation-delay: 1.0s;
 }
 
 @keyframes fadeSequence {
@@ -87,7 +87,7 @@ nav a:hover {
   margin-top: 25px;
   opacity: 0;
   animation: showMenu 1s forwards;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 
 @keyframes showMenu {
@@ -126,5 +126,6 @@ footer {
   width: 100%;
   font-size: 14px;
 }
+
 
 
