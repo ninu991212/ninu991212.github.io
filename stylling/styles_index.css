@@ -16,7 +16,7 @@ header {
 }
 
 nav {
-  background: #2c2c2c;
+  background: #000;
   padding: 10px;
   text-align: center;
 }
@@ -125,3 +125,4 @@ footer {
   width: 100%;
   font-size: 14px;
 }
+
