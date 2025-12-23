@@ -89,12 +89,32 @@ function processar() {
   saida.appendChild(table);
 }
 
+function showToast(message, isSuccess = true) {
+  const toast = document.getElementById("toast");
+  const toastIcon = document.getElementById("toast-icon");
+  const toastMessage = document.getElementById("toast-message");
+  
+  toastMessage.textContent = message;
+  toastIcon.textContent = isSuccess ? "✓" : "✗";
+  toast.className = isSuccess ? "toast success show" : "toast error show";
+  
+  // Remove após 2.5 segundos
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
 function copiar() {
   const saida = document.getElementById("saida");
   const table = saida.querySelector("table");
 
   if (!table) {
-    navigator.clipboard.writeText(saida.innerText || "").then(() => alert("Copiado!"));
+    const text = saida.innerText || "";
+    if (!text.trim()) {
+      showToast("Nada para copiar!", false);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => showToast("Copiado com sucesso!"));
     return;
   }
 
@@ -106,5 +126,7 @@ function copiar() {
   });
 
   const tsv = lines.join("\n");
-  navigator.clipboard.writeText(tsv).then(() => alert("Copiado!"));
+  navigator.clipboard.writeText(tsv)
+    .then(() => showToast("Copiado com sucesso!"))
+    .catch(() => showToast("Erro ao copiar!", false));
 }

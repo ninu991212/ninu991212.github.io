@@ -10,13 +10,30 @@ function extrairWL() {
   }
 }
 
+function showToast(message, isSuccess = true) {
+  const toast = document.getElementById("toast");
+  const toastIcon = document.getElementById("toast-icon");
+  const toastMessage = document.getElementById("toast-message");
+  
+  toastMessage.textContent = message;
+  toastIcon.textContent = isSuccess ? "✓" : "✗";
+  toast.className = isSuccess ? "toast success show" : "toast error show";
+  
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
 function copiarSaida() {
   let conteudo = document.getElementById("saida").innerText;
-  if (!conteudo.trim()) return;
+  if (!conteudo.trim()) {
+    showToast("Nada para copiar!", false);
+    return;
+  }
 
-  navigator.clipboard.writeText(conteudo).then(() => {
-    alert("Copiado!");
-  });
+  navigator.clipboard.writeText(conteudo)
+    .then(() => showToast("Copiado com sucesso!"))
+    .catch(() => showToast("Erro ao copiar!", false));
 }
 
 function limparSaida() {
