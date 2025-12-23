@@ -12,22 +12,26 @@ function processar() {
   // Obtém valores dos dropdowns 
   let orderStatus = document.getElementById("orderStatus").value;
   let closingMotive = document.getElementById("closingMotive").value;
+  let closedOnOption = document.getElementById("closedOn").value;
 
-  // dia e hora atual formatada
-  let agora = new Date();
-  let timestamp =
-    agora.getFullYear() +
-    "-" +
-    String(agora.getMonth() + 1).padStart(2, "0") +
-    "-" +
-    String(agora.getDate()).padStart(2, "0") +
-    "T" +
-    String(agora.getHours()).padStart(2, "0") +
-    ":" +
-    String(agora.getMinutes()).padStart(2, "0") +
-    ":" +
-    String(agora.getSeconds()).padStart(2, "0") +
-    ".000";
+  // dia e hora atual formatada ou vazio
+  let timestamp = "";
+  if (closedOnOption === "now") {
+    let agora = new Date();
+    timestamp =
+      agora.getFullYear() +
+      "-" +
+      String(agora.getMonth() + 1).padStart(2, "0") +
+      "-" +
+      String(agora.getDate()).padStart(2, "0") +
+      "T" +
+      String(agora.getHours()).padStart(2, "0") +
+      ":" +
+      String(agora.getMinutes()).padStart(2, "0") +
+      ":" +
+      String(agora.getSeconds()).padStart(2, "0") +
+      ".000";
+  }
 
   // Construir tabela HTML
   const table = document.createElement("table");

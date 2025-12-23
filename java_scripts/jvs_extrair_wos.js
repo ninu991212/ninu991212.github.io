@@ -3,8 +3,10 @@ function extrairWO() {
   let encontrados = texto.match(/WO-\d{1,8}/gi);
 
   if (encontrados) {
+    // Remove duplicados usando Set e converte de volta para array
+    let unicos = [...new Set(encontrados.map(wo => wo.toUpperCase()))];
     document.getElementById("saida").innerText =
-      "'" + encontrados.join("','") + "'";
+      "'" + unicos.join("','") + "'";
   } else {
     document.getElementById("saida").innerText = "Nenhuma WO encontrada.";
   }
